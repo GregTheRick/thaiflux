@@ -1,0 +1,23 @@
+services:
+  postgres:
+    image: docker.io/postgres:16-alpine
+    container_name: thaiflux-postgres
+    env_file:
+      - ../.env
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+  
+  pgadmin4:
+    image: docker.io/elestio/pgadmin:REL-9_8
+    container_name: thaiflux-pgadmin
+    env_file:
+      - ../.env
+    ports:
+      - "12345:12345"
+    volumes:
+      - ./servers.json:/pgadmin4/servers.json
+
+volumes:
+  postgres_data:
