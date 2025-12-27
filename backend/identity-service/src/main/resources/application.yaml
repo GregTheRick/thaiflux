@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: identity-service
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/thaiflux?schema=thaiflux_app
+    username: thaiflux
+    password: thaiflux
+  sql:
+    init:
+      mode: always
